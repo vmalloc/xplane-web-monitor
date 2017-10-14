@@ -1,0 +1,72 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <div class="row">
+        <div class="col"><h3>Controls</h3></div>
+      </div>
+      <div class="row mb-5">
+        <div class="col">
+          <div class="row">
+            <div class="col">Airbrakes</div>
+            <div class="col">
+              <button type="button" class="btn btn-danger" {{action "airbrakes_down"}}>Dep</button>
+              <button type="button" class="btn btn-primary" {{action "airbrakes_up"}}>Rel</button>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+
+          <div class="row">
+            <div class="col">
+              <canvas data-type="radial-gauge"
+                data-width="300"
+                data-height="250"
+                data-major-ticks="0,60,80,270,380"
+                data-value="{{model.ias}}"
+                data-units="Knots"
+              ></canvas>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col text-center">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+
+              {{#if model.speedbrakes}}
+                <div class="alert alert-danger" role="alert">
+                  SPEEDBRAKES
+                </div>
+              {{/if}}
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <div class="col">
+      <div class="row">
+        <div class="col">
+          Alt: {{model.altitude}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          {{model.lat}}/{{model.lng}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          {{moving-map lat=model.lat lng=model.lng}}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
